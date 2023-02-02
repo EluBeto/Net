@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using WebApiAutor.Filtros;
 using WebApiAutor.Middelewares;
-using WebApiAutor.Services;
 
 namespace WebApiAutor
 {
@@ -29,22 +28,6 @@ namespace WebApiAutor
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
 
-            //services.AddTransient<IServicio, ServicioA>();
-            //services.AddTransient<ServicioA>();
-            //services.AddScoped<IServicio, ServicioA>();
-
-            services.AddTransient<IServicio, ServicioA>();
-
-            services.AddTransient<ServiceTransient>();
-            services.AddScoped<ServiceScoped>();
-            services.AddSingleton<ServiceSingleton>();
-
-            services.AddTransient<MiFiltroDeAccion>();
-
-            services.AddHostedService<EscribirArchivo>();
-
-            services.AddResponseCaching();
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -54,18 +37,7 @@ namespace WebApiAutor
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
-            //app.UseMiddleware<LoguearRespuestaHTTPMiddleware>();
             app.UseLoguearRespuestaHTTP();
-
-            /*
-            app.Map("/ruta1", app =>
-            {
-                app.Run(async contexto =>
-                {
-                    await contexto.Response.WriteAsync("NA");
-                });
-            });
-            */
 
             if (env.IsDevelopment())
             {
@@ -76,8 +48,6 @@ namespace WebApiAutor
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseResponseCaching();
 
             app.UseAuthorization();
 

@@ -14,7 +14,7 @@ namespace WebApiAutor.Controllers
         {
             dbContext = context;
         }
-
+        /*
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Libro>> Get(int id)
         {
@@ -36,6 +36,7 @@ namespace WebApiAutor.Controllers
 
             return Ok();
         }
+        */
     }
 }
 
