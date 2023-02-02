@@ -30,6 +30,7 @@
     <None Remove="Middelewares\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Filtros\" />
+    <None Remove="wwwRoot\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -38,5 +39,6 @@
     <Folder Include="Services\" />
     <Folder Include="Middelewares\" />
     <Folder Include="Filtros\" />
+    <Folder Include="wwwRoot\" />
   </ItemGroup>
 </Project>
