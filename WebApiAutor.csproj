@@ -14,6 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,8 @@
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Filtros\" />
     <None Remove="wwwRoot\" />
+    <None Remove="DTOs\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -40,5 +43,6 @@
     <Folder Include="Middelewares\" />
     <Folder Include="Filtros\" />
     <Folder Include="wwwRoot\" />
+    <Folder Include="DTOs\" />
   </ItemGroup>
 </Project>
