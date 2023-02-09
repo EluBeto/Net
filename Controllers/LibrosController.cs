@@ -23,7 +23,9 @@ namespace WebApiAutor.Controllers
         [HttpGet("{id:int}")]
         public async Task<ActionResult<LibroDto>> Get(int id)
         {
-            var libro = await dbContext.Libros.FirstOrDefaultAsync(x => x.Id == id);
+            var libro = await dbContext.Libros
+                .Include(libroBd => libroBd.Comentarios)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return Amapper.Map<LibroDto>(libro);
         }
